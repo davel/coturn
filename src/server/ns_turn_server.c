@@ -4555,7 +4555,9 @@ static int read_client_connection(turn_turnserver *server, ts_ur_super_session *
           char buffer[1024];
           snprintf(buffer, sizeof(buffer),
                    "HTTP/1.1 400 %s Not supported\r\nConnection: close\r\nContent-Type: "
-                   "text/plain\r\nContent-Length: %d\r\n\r\n%s",
+                   "text/plain\r\nContent-Length: %d\r\n"
+                   "Strict-Transport-Security: max-age=15552000; preload"
+                   "\r\n%s",
                    proto, content_length, content);
 
           ioa_network_buffer_set_size(nbh_http, strlen(buffer));
