@@ -4554,9 +4554,13 @@ static int read_client_connection(turn_turnserver *server, ts_ur_super_session *
           /* Construct full response */
           char buffer[1024];
           snprintf(buffer, sizeof(buffer),
-                   "HTTP/1.1 400 %s Not supported\r\nConnection: close\r\nContent-Type: "
-                   "text/plain\r\nContent-Length: %d\r\n"
-                   "Strict-Transport-Security: max-age=31536000; preload"
+                   "HTTP/1.1 400 %s Not supported\r\n"
+                   "Connection: close\r\n"
+                   "Content-Type: text/plain\r\n"
+                   "Content-Length: %d\r\n"
+                   "Strict-Transport-Security: max-age=31536000; preload\r\n"
+                   "Content-Security-Policy: default-src 'self'\r\n"
+                   "X-Content-Type-Options: nosniff\r\n"
                    "\r\n%s",
                    proto, content_length, content);
 
