@@ -1,5 +1,5 @@
 Name:		turnserver
-Version:	4.6.2_davel9
+Version:	4.6.2_davel11
 Release:	0%{dist}
 Summary:	Coturn TURN Server
 
